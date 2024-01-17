@@ -13,12 +13,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 public class OAuthResourceServerApplication {
 
-    private final OAuthResourceServerMongoDBAPI clientDataRepo;
 
-    @Autowired
-    public OAuthResourceServerApplication(OAuthResourceServerMongoDBAPI clientDataRepo) {
-        this.clientDataRepo = clientDataRepo;
-    }
     public static void main(String[] args) {
         SpringApplication.run(OAuthResourceServerApplication.class, args);
 

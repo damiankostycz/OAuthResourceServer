@@ -8,7 +8,8 @@ spring:
       database: clients_data
 
 
-
+  main:
+    allow-bean-definition-overriding: true
 #  level:
 #    root: INFO
 #    org.springframework.web: INFO

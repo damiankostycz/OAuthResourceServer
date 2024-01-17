@@ -14,20 +14,19 @@ import static org.springframework.security.config.Customizer.withDefaults;
 
 @Configuration
 @EnableWebSecurity
-//@EnableWebFluxSecurity
+@EnableWebFluxSecurity
 public class OAuthResourceServerSecurityConfig {
+    @Bean
     SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
         http
                 .authorizeExchange(exchanges -> exchanges
-                        .pathMatchers(HttpMethod.GET,"/secured-data").hasAuthority("SCOPE_message:read")
-                        .pathMatchers(HttpMethod.GET, "/getData/**").permitAll()
-                        .pathMatchers(HttpMethod.GET, "/message/**").hasAuthority("SCOPE_message:read")
-                        .pathMatchers(HttpMethod.POST, "/message/**").hasAuthority("SCOPE_messag:write")
+                        .pathMatchers(HttpMethod.GET, "/all-clients").hasAuthority("SCOPE_message:readAll")
+                        .pathMatchers(HttpMethod.GET, "/get-clients-by-name").hasAuthority("SCOPE_message:readByNames")
                         .anyExchange().permitAll()
                 )
                 .oauth2ResourceServer(oauth2 -> oauth2
-                    .jwt(withDefaults())
-        );
+                        .jwt(withDefaults())
+                );
         return http.build();
     }
     @Bean

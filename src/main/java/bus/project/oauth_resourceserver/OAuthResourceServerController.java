@@ -16,27 +16,19 @@ public class OAuthResourceServerController {
     @Autowired
     MongoTemplate mongoTemplate;
 
-    @GetMapping("/secured-data")
+    @GetMapping("/all-clients")
     public String getSecuredData() {
         return this.findAllClients().toString() ;
     }
-    @GetMapping("/getData")
-    public String getClientByName(String name) {
+    @GetMapping("/get-clients-by-name")
+    public String getClientByName(@RequestParam String name) {
         return this.findClientByName(name).toString() ;
     }
     @GetMapping("/")
     public String index(@AuthenticationPrincipal Jwt jwt) {
         return String.format("Hello, %s!", jwt.getSubject());
     }
-    @GetMapping("/message")
-    public String message() {
-        return "secret message";
-    }
 
-    @PostMapping("/message")
-    public String createMessage(@RequestBody String message) {
-        return String.format("Message was created. Content: %s", message);
-    }
 
     @Autowired
     private OAuthResourceServerMongoDBAPI repository;
@@ -49,8 +41,5 @@ public class OAuthResourceServerController {
         return repository.findAllByFirstName(firstName);
     }
 
-    private List<ClientData> findAllByName(String firstName) {
-        return repository.findAllByFirstName(firstName);
-    }
 
 }
