@@ -9,5 +9,5 @@ import java.util.List;
     @Query("{firstName:'?0'}")
     ClientData findItemByName(String firstName);
 
-    List<ClientData> findAllClients();
+//    List<ClientData> findAllClients();
 }
