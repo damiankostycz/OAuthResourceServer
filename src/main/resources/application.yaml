@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8081
 
 spring:
   data:
@@ -8,6 +8,9 @@ spring:
       database: clients_data
 
 
+#  okta:
+#    oauth2:
+#      issuer: https://dev-....okta.com/oauth2/default
   main:
     allow-bean-definition-overriding: true
 #  level:
@@ -16,13 +19,11 @@ spring:
 #    org.springframework.security: INFO
 #    org.springframework.security.oauth2: INFO
 
-#spring:
-#  security:
-#    oauth2:
-#      resourceserver:
-#        jwt:
-#          issuer-uri: https://idp.example.com/issuer
-#          jwk-set-uri: https://idp.example.com/.well-known/jwks.json
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080
 
 
 
