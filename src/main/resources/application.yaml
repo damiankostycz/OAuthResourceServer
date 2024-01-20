@@ -8,11 +8,7 @@ spring:
       database: clients_data
 
 
-#  okta:
-#    oauth2:
-#      issuer: https://dev-....okta.com/oauth2/default
-  main:
-    allow-bean-definition-overriding: true
+
 #  level:
 #    root: INFO
 #    org.springframework.web: INFO
