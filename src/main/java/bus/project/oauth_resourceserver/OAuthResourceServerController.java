@@ -19,10 +19,11 @@ public class OAuthResourceServerController {
     public String getClientByName(@RequestParam String firstName) {
         return this.dataService.findItemByName(firstName).toString() ;
     }
-    @GetMapping("/")
-    String hello() {
-        return this.dataService.findAllClients().toString();
-    }
 
+    @GetMapping("/")
+    String hello1() {
+        return this.dataService.findAllClients().toString() ;
+
+    }
 
 }
