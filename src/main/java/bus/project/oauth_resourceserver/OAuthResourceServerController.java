@@ -20,10 +20,5 @@ public class OAuthResourceServerController {
         return this.dataService.findItemByName(firstName).toString() ;
     }
 
-    @GetMapping("/")
-    String hello1() {
-        return this.dataService.findAllClients().toString() ;
-
-    }
 
 }
