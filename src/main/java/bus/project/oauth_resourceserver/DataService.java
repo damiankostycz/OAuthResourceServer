@@ -23,9 +23,5 @@ public class DataService {
     public  ClientData findItemByName(String firstName) {
         return clientRepo.findItemByName(firstName);
     }
-    @PreAuthorize("hasAuthority('SCOPE_user.read')")
-    public Map<String, String> greet() {
-        var jwt = (Jwt) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return Map.of("message", "Hello " + jwt.getSubject());
-    }
+
 }
