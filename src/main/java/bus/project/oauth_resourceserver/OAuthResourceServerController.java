@@ -17,7 +17,9 @@ public class OAuthResourceServerController {
     }
     @GetMapping("/get-clients-by-name")
     public String getClientByName(@RequestParam String firstName) {
-        return this.dataService.findItemByName(firstName).toString() ;
+        ClientData receivedClient =  this.dataService.findItemByName(firstName);
+        if(receivedClient == null) return "There is no client with name: " + firstName;
+        else return  receivedClient.toString();
     }
 
 
