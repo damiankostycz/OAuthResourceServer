@@ -4,8 +4,8 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb+srv://damian:oRAhCnuhtl3g9138@cluster0.dzyi1is.mongodb.net/clients_data
-      database: clients_data
+      uri: #private
+      database: #private
 
   security:
     oauth2:
